@@ -8,14 +8,27 @@ import {
   ListIcon,
   OrderedList,
   UnorderedList,
+  Button,
 } from "@chakra-ui/react";
+import { useColorMode, toggleColorMode } from "@chakra-ui/react";
+
 function HomePage() {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <>
       <Container maxW="container.lg">
         <br />
         <br />
-        <h1>Chakra UI Notes</h1>
+        <header>
+          <Button onClick={toggleColorMode}>
+            Toggle {colorMode === "light" ? "Dark" : "Light"}
+          </Button>
+        </header>
+        <br />
+        <br />
+        <h1>
+          <strong>Chakra UI Notes</strong>
+        </h1>
         <br />
         <br />
         <p>
@@ -28,13 +41,23 @@ function HomePage() {
         </p>
         <br />
         <br />
+        <h1>
+          <strong>List Groups</strong>
+        </h1>
+        <br />
+        <br />
         <OrderedList>
           <ListItem>Lorem ipsum dolor sit amet</ListItem>
           <ListItem>Consectetur adipiscing elit</ListItem>
           <ListItem>Integer molestie lorem at massa</ListItem>
           <ListItem>Facilisis in pretium nisl aliquet</ListItem>
         </OrderedList>
-
+        <br />
+        <br />
+        <h1>
+          {" "}
+          <strong>Centered Box</strong>
+        </h1>
         <br />
         <br />
         <Container maxW="xl" centerContent>
@@ -47,25 +70,40 @@ function HomePage() {
         </Container>
         <br />
         <br />
+        <h1>
+          {" "}
+          <strong>Container With Color</strong>
+        </h1>
+        <br />
+        <br />
         <Center bg="teal" h="100px" color="white">
           This is the Center
         </Center>
         <br />
         <br />
-        <h1>Icon Styling</h1>
+        <h1>
+          <strong>Icon With Styling</strong>
+        </h1>
+        <br />
+        <br />
         <IconButton
           colorScheme="blue"
           aria-label="Search database"
           icon={<SearchIcon />}
         />
+        <br />
+        <br />
+        <h1>
+          <strong>Gradients</strong>
+        </h1>
+        <br />
+        <br />
+        <Box
+          w="100%"
+          h="200px"
+          bgGradient="linear(to-r, green.200, pink.500)"
+        />
       </Container>
-
-      {/* <VStack>
-        <Container maxW="container.xl">Extra-Large Container</Container>
-        <Container maxW="container.lg">Large Container</Container>
-        <Container maxW="container.md">Medium Container</Container>
-        <Container maxW="container.sm">Small Container</Container>
-      </VStack> */}
     </>
   );
 }
